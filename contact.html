@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE SLAP - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <nav class="navbar">
+        <div class="container">
+            <a class="logo" href="index.html">THE SLAP</a>
+        
+
+            <div class="navbar-pages">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="posts.html">Posts</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="mainContact">
+        <div class="container">
+            <div class="contactContent">
+                <h1>Contact us</h1>
+                <form class="contactForm">
+                    <div class="container">
+                        <label for="name" id="label-name">Name:</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="container">
+                        <label for="email" id="label-email">Email:</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+
+                    <!-- Message textarea: allows users to leave a longer message -->
+                    <div class="container">
+                        <label for="message" id="label-message">Message:</label>
+                        <textarea id="message" placeholder="Leave your message" rows="5"></textarea>
+                    </div>
+
+                    <div class="container">
+                        <label for="confirm">Confirm to send</label>
+                        <input type="checkbox" id="confirm">
+                    </div>
+
+                    <div class="container">
+                        <button type="submit" value="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 THE SLAP</p>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script> <!-- Keep main.js for global nav highlighting -->
+    <script src="js/form.js"></script>
+</body>
+</html>

@@ -1,0 +1,525 @@
+/*====================================
+    CSS VARIABLES & THEME CONFIGURATION
+=====================================*/
+/* Contains all global variables for:
+ * - Colors
+ * - Spacing
+ * - Typography
+ * - Shadows
+ * - Border radius
+ * - Transitions
+ */
+:root {
+    /* --- Color Palette --- */
+    --maize: #fff05aff;       /* rgba(255, 240, 90, 1) */
+    --sunglow: #ffd25aff;     /* rgba(255, 210, 90, 1) */
+    --sandy-brown: #ffaa5aff; /* rgba(255, 170, 90, 1) */
+    --bittersweet: #ff785aff; /* rgba(255, 120, 90, 1) */
+    --eerie-black: #191919ff; /* rgba(25, 25, 25, 1) */
+
+    /* --- Semantic Colors --- */
+    --primary-color: var(--sandy-brown);
+    --secondary-color: var(--maize);
+    --dark-bg-color: var(--eerie-black);
+
+    --text-color: #333;
+    --light-text-color: var(--maize);
+    --subtle-text-color: #555;
+    --lighter-text-color: #777;
+    --border-color: #ddd;
+    --light-border-color: #eee;
+
+    --background-color-light: #f9f9f9;
+    --background-color-white: #fff;
+    --background-color-grey: #e9ecef;
+    --background-color-comment: #fafafa;
+
+    --error-color: var(--bittersweet);
+    --success-color: #4CAF50;
+    --disabled-color: #cccccc;
+
+    --shadow-color: rgba(0,0,0,0.1);
+    --shadow-color-dark: rgba(0,0,0,0.2);
+    --shadow-color-modal: rgba(0,0,0,0.6);
+    --shadow-color-card-hover: rgba(0,0,0,0.15);
+
+    /* --- Spacing --- */
+    --space-xs: 5px;
+    --space-sm: 8px;
+    --space-md: 10px;
+    --space-lg: 15px;
+    --space-xl: 20px;
+    --space-xxl: 25px;
+    --space-xxxl: 30px;
+    --space-huge: 40px;
+    --space-section: 60px;
+
+    /* --- Font Sizes --- */
+    --font-size-base: 1em;
+    --font-size-sm: 0.8em;
+    --font-size-md: 0.9em;
+    --font-size-lg: 1.1em;
+    --font-size-xl: 1.5em;
+    --font-size-xxl: 1.8em;
+    --font-size-h1: 2.5em;
+    --font-size-h2: 2em;
+    --font-size-h3: 1.5em;
+
+    /* --- Border Radii --- */
+    --border-radius-sm: 3px;
+    --border-radius-md: 5px;
+    --border-radius-lg: 8px;
+    --border-radius-xl: 4px;
+
+    /* --- Transitions --- */
+    --transition-speed-fast: 0.2s;
+    --transition-speed-normal: 0.3s;
+}
+
+/*====================================
+    GLOBAL RESET & BASE STYLES
+====================================*/
+/* Basic reset and default styles for:
+ * - Box sizing
+ * - Margins and padding
+ * - Typography
+ * - Links
+ * - Lists
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color-light);
+}
+
+main {
+    flex: 1; /* makes main grow to push footer down */
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--space-md);
+}
+
+/*====================================
+    NAVIGATION BAR
+====================================*/
+/* Styles for the top navigation bar including:
+ * - Layout and positioning
+ * - Links and hover states
+ * - Active state highlighting
+ * - Logo styling
+ * - Responsive adjustments
+ */
+.navbar {
+    background: var(--background-color-grey);
+    padding: 20px;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .navbar-pages ul {
+    display: flex;
+}
+
+.navbar ul li a {
+    padding: 10px 20px;
+    display: block;
+    font-weight: 600;
+    transition: var(--transition-speed-normal);
+    border-radius: var(--border-radius-lg);
+}
+
+.navbar ul li a:hover {
+    color: var(--subtle-text-color);
+    background-color: var(--shadow-color-dark);
+}
+
+.navbar ul li a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.navbar .logo {
+    color: var(--text-color);
+    font-size: var(--font-size-xxl);
+}
+
+/* -----------------------------
+    Main Content
+------------------------------ */
+.mainPage, .mainContact {
+    margin-bottom: 50px;
+}
+
+.mainPage .container, .mainContact .container {
+    background: var(--background-color-light);
+}
+
+.mainPage .mainPageContent, .mainContact .contactContent {
+    background: var(--background-color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainPage .mainPageContent h1,
+.mainContact .contactContent h1 {
+    padding: var(--space-xxxl);
+    color: var(--eerie-black);
+}
+
+.mainPage .mainPageContent p {
+    padding: var(--space-section);
+    color: var(--lighter-text-color);
+}
+
+.mainPage .mainPageContent a:hover {
+    color: var(--sunglow);
+}
+
+/* -----------------------------
+    Contact Form
+------------------------------ */
+
+.contactForm {
+    background: var(--background-color-grey);
+    width: 80%;
+    max-width: 600px;
+    padding: var(--space-xxl);
+    margin: var(--space-xxxl) auto var(--space-huge);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+/* Form fields */
+.contactForm .container {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    margin-bottom: var(--space-md);
+}
+
+/* Labels */
+.contactForm label {
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--eerie-black);
+}
+
+/* Inputs */
+.contactForm input[type="text"],
+.contactForm input[type="email"],
+.contactForm textarea {
+    padding: var(--space-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-md);
+    transition: border-color var(--transition-speed-normal), box-shadow var(--transition-speed-normal);
+    width: 100%;
+}
+
+.contactForm input[type="text"]:focus,
+.contactForm input[type="email"]:focus,
+.contactForm textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--shadow-color-card-hover);
+    outline: none;
+}
+
+/* Textarea specific visuals */
+.contactForm textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Checkbox alignment */
+.contactForm input[type="checkbox"] {
+    margin-right: var(--space-sm);
+    transform: scale(1.1);
+}
+
+/* Submit Button */
+.contactForm button {
+    background: var(--primary-color);
+    color: white;
+    padding: var(--space-md) var(--space-xxl);
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    transition: background-color var(--transition-speed-normal);
+}
+
+.contactForm button:disabled {
+    background: var(--disabled-color);
+    cursor: not-allowed;
+}
+
+.contactForm button:hover:not(:disabled) {
+    background: var(--bittersweet);
+}
+
+/*====================================
+    POSTS PAGE STYLES
+====================================*/
+/* Styles for the posts page including:
+ * - Post cards layout
+ * - Title and content formatting
+ * - User information
+ * - Tags and reactions
+ * - Comments section
+ */
+
+.posts-main h1 {
+    padding: var(--space-xl) var(--space-xl) var(--space-lg);
+    text-align: center;
+    color: var(--text-color);
+    font-size: var(--font-size-h1);
+}
+
+.post-card {
+    background: var(--background-color-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xxl) var(--space-xxxl);
+    margin: 0 var(--space-xl) var(--space-xl);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.post-card h2 {
+    color: var(--text-color);
+    margin-bottom: var(--space-lg);
+    font-size: var(--font-size-xl);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--light-border-color);
+}
+
+.post-card p {
+    color: var(--subtle-text-color);
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--space-md) 0;
+    color: var(--lighter-text-color);
+}
+
+.username-link {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.tags {
+    margin-top: var(--space-md);
+}
+
+.tag {
+    background: var(--background-color-grey);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--border-radius-sm);
+    margin-right: var(--space-xs);
+    font-size: var(--font-size-sm);
+    color: var(--subtle-text-color);
+}
+
+.reactions {
+    font-size: var(--font-size-sm);
+}
+
+.comments {
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+    background: var(--background-color-comment);
+    border-radius: var(--border-radius-md);
+}
+
+/*====================================
+    USER PROFILE MODAL
+====================================*/
+/* Styles for the user profile modal including:
+ * - Modal overlay
+ * - Content container
+ * - Animation and transitions
+ * - Close button
+ */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--shadow-color-modal);
+    z-index: 1000;
+}
+
+.modal.open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--background-color-white);
+    padding: var(--space-xl);
+    border-radius: var(--border-radius-lg);
+    position: relative;
+    max-width: 500px;
+    width: 90%;
+}
+
+.close {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-size: var(--font-size-xl);
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Load More Button */
+#load-more {
+    display: block;
+    margin: var(--space-xl) auto;
+    padding: var(--space-md) var(--space-xxl);
+    background: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius-md);
+    color: white;
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    transition: background-color var(--transition-speed-normal);
+}
+
+#load-more:hover {
+    background: var(--bittersweet);
+}
+
+#load-more:disabled {
+    background: var(--disabled-color);
+    cursor: not-allowed;
+}
+
+/* -----------------------------
+    Footer
+------------------------------ */
+.footer {
+    background: var(--background-color-grey);
+    color: var(--text-color);
+    padding: 20px;
+    margin-top: auto; /* keeps footer at bottom */
+}
+
+.footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--subtle-text-color);
+}
+
+
+
+/*====================================
+    RESPONSIVE: SMALL SCREENS
+====================================*/
+/* Increase base font sizes and adjust spacing slightly for small devices
+ * Improves readability on phones and small screens (<= 480px)
+ */
+@media (max-width: 480px) {
+    :root {
+        --font-size-base: 1.05em; /* slightly larger base font */
+        --font-size-md: 1.0em;
+        --font-size-lg: 1.15em;
+        --font-size-xl: 1.6em;
+        --font-size-h1: 2.2em;
+    }
+
+    /* Reduce container padding so content fits, but keep readable spacing */
+    .container {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+
+    /* Slightly increase header/title spacing on mobile */
+    .posts-main h1,
+    .mainPage .mainPageContent h1,
+    .mainContact .contactContent h1 {
+        padding: var(--space-lg) var(--space-md) var(--space-sm);
+        font-size: var(--font-size-h1);
+    }
+
+    /* Make post cards edge-to-edge with small horizontal padding */
+    .post-card {
+        margin: 0 var(--space-md) var(--space-lg);
+        padding: var(--space-lg);
+    }
+
+    /* Slightly larger titles for clarity */
+    .post-card h2 {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Make form and inputs easier to tap */
+    .contactForm {
+        width: 95%;
+        padding: var(--space-lg);
+        gap: var(--space-md);
+    }
+
+    .contactForm input,
+    .contactForm textarea,
+    .contactForm button {
+        font-size: var(--font-size-md);
+    }
+}
+
+
