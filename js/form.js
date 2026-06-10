@@ -115,3 +115,20 @@ form.addEventListener('submit', (e) => {
     form.reset();
     updateSubmitButton();
 });
+
+
+//live counter
+
+
+// 1) Create the counter element and place it under the textarea
+const counter = document.createElement('span');
+counter.className = 'char-counter';
+counter.textContent = 'You have typed: 0 characters';
+messageInput.parentElement.appendChild(counter);
+
+// 2) Update it live on every keystroke
+messageInput.addEventListener('input', (e) => {
+    const length = e.target.value.length;
+    counter.textContent = `You have typed: ${length} characters`;
+});
+

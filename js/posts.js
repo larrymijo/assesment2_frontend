@@ -28,6 +28,41 @@ const userModal = document.getElementById('user-modal');
 const userProfileDiv = document.getElementById('user-profile');
 const closeModalBtn = document.getElementById('close-modal');
 
+
+//g2 back to top button
+// 1) Create and add the button
+const topBtn = document.createElement('button');
+topBtn.textContent = 'Top';
+document.body.appendChild(topBtn);
+
+// 2) Fix it to the bottom-right (styled from JS so no extra CSS is needed)
+topBtn.style.position = 'fixed';
+topBtn.style.bottom = '20px';
+topBtn.style.right = '20px';
+topBtn.style.padding = '10px 14px';
+topBtn.style.border = 'none';
+topBtn.style.borderRadius = '6px';
+topBtn.style.background = '#ffaa5a';
+topBtn.style.color = '#fff';
+topBtn.style.cursor = 'pointer';
+
+// 3) Hidden until we scroll 200px down
+topBtn.style.display = 'none';
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        topBtn.style.display = 'block';
+    } else {
+        topBtn.style.display = 'none';
+    }
+});
+
+// 4) Smooth scroll back to the top on click
+topBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+
+
 /* ------------------------- CLASSES ------------------------- */
 class User {
     constructor(raw) {
@@ -40,6 +75,9 @@ class User {
         ? `${raw.address.address || ''}, ${raw.address.city || ''}`
         : 'N/A';
         this.company = raw.company?.name || '';
+
+        //hair
+        this.hair = raw.hair;
     }
 }
 
@@ -282,7 +320,9 @@ function openUserModal(userId) {
         { label: 'Email', value: user.email },
         { label: 'Phone', value: user.phone },
         { label: 'Address', value: user.address },
-        { label: 'Company', value: user.company }
+        { label: 'Company', value: user.company },
+        //hair color
+        { label: 'Hair', value: `${user.hair.color} (${user.hair.type})` }
     ];
 
     details.forEach(detail => {
