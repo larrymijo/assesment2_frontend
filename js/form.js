@@ -115,3 +115,16 @@ form.addEventListener('submit', (e) => {
     form.reset();
     updateSubmitButton();
 });
+
+//couner
+
+const counter = document.createElement('span');
+
+counter.className = 'char-counter';
+counter.textContent = 'You have typed 0 characters';
+messageInput.parentElement.appendChild(counter);
+
+messageInput.addEventListener('input', (e) => {
+    const length = e.target.value.length;
+    counter.textContent = `You have typed: ${length} characters`;
+});

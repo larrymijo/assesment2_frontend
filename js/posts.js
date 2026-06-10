@@ -40,6 +40,8 @@ class User {
         ? `${raw.address.address || ''}, ${raw.address.city || ''}`
         : 'N/A';
         this.company = raw.company?.name || '';
+        
+        this.hair = raw.hair;
     }
 }
 
@@ -282,7 +284,10 @@ function openUserModal(userId) {
         { label: 'Email', value: user.email },
         { label: 'Phone', value: user.phone },
         { label: 'Address', value: user.address },
-        { label: 'Company', value: user.company }
+        { label: 'Company', value: user.company },
+
+        //
+        { label: 'hair', value: `${user.hair.color} (${user.hair.type})` },
     ];
 
     details.forEach(detail => {
@@ -320,3 +325,33 @@ loadMoreBtn.addEventListener('click', renderPosts);
 (async function init() {
     await renderPosts();
 })();
+
+
+
+
+//button 
+
+const topBtn = document.createElement('button')
+topBtn.textContent = 'Topi';
+document.body.appendChild(topBtn);
+
+topBtn.style.position = 'fixed';
+topBtn.style.bottom = '20px';
+topBtn.style.right = '20px';
+
+topBtn.style.display = 'none';
+window.addEventListener('scroll', () =>{
+    if (window.scrollY > 200) {
+        topBtn.style.display = 'block';
+    } else {
+        topBtn.style.display = 'none';
+    }
+});
+
+topBtn.addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: "smooth"})
+});
+
+
+
+

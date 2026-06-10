@@ -17,3 +17,10 @@ navLinks.forEach(link => {
         link.classList.add('active'); // Highlight the current page link
     }
 });
+
+
+const randomMessages = ['Welcome', 'Hello Person'];
+
+const rendomIndex = Math.floor(Math.random() * randomMessages.length);
+
+document.getElementById('welcomeMessage').textContent = randomMessages[rendomIndex];
